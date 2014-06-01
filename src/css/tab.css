@@ -1,0 +1,41 @@
+#tabs	{
+	margin:0px 0px 0px 0px;
+	overflow: hidden;
+	padding: 0;
+	zoom: 1;
+	position:relative;
+	top:2px;
+	z-index: 1;	
+}
+
+#tabs li {
+	display: block;
+	list-style: none;
+	margin: 0;
+	margin-right: 30px;
+	padding: 0;
+	float: left;	
+}
+
+#tabs li a {
+	display: block;
+	padding: 8px 10px 8px 10px;
+	border: 1px solid #0072C6;
+	border-bottom: 0 none;
+	text-align: center;
+	text-decoration: none;
+	color:#474747;	
+}
+
+.tab-section {
+	background:#E5E5E5;
+	padding: 10px 0 0 0;
+	border-top: 1px solid #0072C6;;
+}
+
+#tabs li a.current {
+	background:#E5E5E5;
+	color: #000;
+	border-bottom: 1px solid #0072C6;
+	margin-top:-1%;
+}
