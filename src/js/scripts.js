@@ -5,6 +5,8 @@ $(document).ready(function(){
 		screemsHeight();
 	});
 	
+	
+	
 	$("[id^='screem_']").click(function (event) {		//My experiment link expand/collapse 	
 		$('#tabs a.current').removeClass('current');	//Remove Class for active tab.
 		$('.tab-section:visible').hide();				//Hide body content of active tab
@@ -46,6 +48,24 @@ $(document).ready(function(){
 	}).mouseout(function(){
 		$(this).animate({ width: "300px", height: "110px" }, 100);
 	});*/
+	
+	$("#screem_1").mouseover(function()
+	{
+		$("#showControls").css("display","block");
+		$("#showControls").animate({ left: '0' },350);
+		$("#screemsBarRight1").css("width","79%");
+	}).mouseout(function()
+	{
+		$("#showControls").css("display","none");
+		$("#showControls").animate({ left: '-11px' },350);
+		$("#screemsBarRight1").css("width","99%");
+	});	
+	
+	$("#screemsBarRight1").mouseover(function(){
+		$("#screemsControls1").css("display","block");
+	}).mouseout(function(){
+		$("#screemsControls1").css("display","none");
+	});		
 });
 
 $(window).load(function(){

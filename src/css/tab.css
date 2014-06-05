@@ -14,7 +14,7 @@
 	margin: 0;
 	margin-right: 30px;
 	padding: 0;
-	float: left;	
+	float: left;
 }
 
 #tabs li a {
@@ -29,7 +29,7 @@
 
 .tab-section {
 	background:#E5E5E5;
-	padding: 10px 0 0 0;
+	padding: 0px;
 	border-top: 1px solid #0072C6;;
 }
 
@@ -37,5 +37,4 @@
 	background:#E5E5E5;
 	color: #000;
 	border-bottom: 1px solid #0072C6;
-	margin-top:-1%;
 }
