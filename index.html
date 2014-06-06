@@ -3,54 +3,81 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Streams.com</title>
+	<title>Start Screaming | Screams.io</title>
+	<link rel="icon" href="src/images/favicon.ico" type="image/x-icon">
 	<script type="text/javascript" src="src/js/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript" src="src/js/scripts.js"></script>
 	<script type="text/javascript" src="src/js/tab.js"></script>
+	<script type="text/javascript" src="src/js/modernizr.custom.js"></script>
 		
 	<link type="text/css" href="src/css/styles.css" rel="stylesheet">
 	<link type="text/css" href="src/css/tab.css" rel="stylesheet">
+	<link type="text/css" href="src/css/external/screamsoptions/screamsdefault.css" rel="stylesheet">
+	<link type="text/css" href="src/css/external/screamsoptions/screamscomponents.css" rel="stylesheet">
 </head>
 
 <body class="body">
 	<div align="center">
-    	<div class="mainContainer">
-		
-        	<header class="topHeader" id="topHeader">
-            	<div class="divLogo">
-                	<img src="src/images/logo.png" alt="">
-                </div>
-                <div class="divTopMenu">
-                	<div class="divUser">
-                    	<span>Praneesh Kumar Yadav</span>
-                        <br/>
-                        <span>Logout</span>
-                    </div>
-                	<div class="divUserImg">
-                    	<img src="src/images/user.png" alt="">
-                    </div>
-                    <div class="clear"></div>
-                </div>
-                <div class="clear"></div>
-				<!--<hr class="hrStyle"/>-->
-            </header>
+		<header class="topHeader" id="topHeader">
+			<div class="divLogo">
+				Screams
+				<!--<img src="src/images/logo.png" alt="">-->
+			</div>
+			<div class="screemsSearch">				
+				<img src="src/images/search.png" alt="">
+				<input type="text" id="txtSearch" class="textboxStyle" placeholder="Search Screams" >
+			</div>
+			<div class="divTopMenu">
+				<div class="divUser">
+					<span>Praneesh Kumar Yadav</span>
+				</div>
+				<div class="divUserImg">
+					<img src="src/images/user.png" alt="">
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="clear"></div>
+			
+			<div class="topMenu">
+				<ul>
+					<li>#myscreams</li>
+					<li>#food</li>
+					<li>#wildlife</li>
+					<li>#science</li>
+					<li>#narendramodi</li>					
+				</ul>
+				
+			</div>
+		</header>
+    	<div class="mainContainer">       	
 			<div class="bodyContainer">
 				<div class="tabControl" id="tabControl">
-					<ul id="tabs">
-						<li>&nbsp;<li>
-						<li><a href="#myFeeds">My Feeds</a></li>
-						<li><a href="#selectedFeed"><span id="li_experiment">Selected Feed</span></a></li>								
-					</ul>
-					<div id="myFeeds" class="tab-section">
+					<div style="">
 						<div class="divFeedLeft">
-							<div class="screemsBar">
+							<div class="screamsOptions">
+								<section id="set-8">
+									<div class="hi-icon-wrap hi-icon-effect-8">
+										<!--<a href="#set-8" class="hi-icon hi-icon-archive">Archive</a>
+										<a href="#set-8" class="hi-icon hi-icon-chat">Chat</a>
+										<a href="#set-8" class="hi-icon hi-icon-bookmark">Bookmarks</a>
+										<a href="#set-8" class="hi-icon hi-icon-user">User</a>-->
+										
+										<a href="#set-8" class="hi-icon hi-icon-archive">Archive</a>
+										<a href="#set-8" class="hi-icon hi-icon-chat">Chat</a>
+										<a href="#set-8" class="hi-icon hi-icon-bookmark">Bookmarks</a>
+										<a href="#set-8" class="hi-icon hi-icon-user">User</a>
+										
+									</div>
+								</section>
+							</div>
+							<div class="screemsBar" style="margin:2.3% 0% 0% 0%;">
 								<div class="screemsBarLeft1" id="screem_1">&nbsp;</div>
 								<div class="divScreemsControls" id="showControls">
 									<h3>Testing</h3>
 								</div>
 								<div class="screemsBarRight" id="screemsBarRight1">
 									<div class="screemContainer">
-										<h3>Screems One</h3>
+										<h3>One</h3>
 										<div class="screemContent">
 											This post is written by Christian.This post is
 											written by Christian.This post is written by
@@ -66,11 +93,11 @@
 							</div>
 						</div>
 						<div class="divFeedRight">
-							<div class="screemsBar">
+							<div class="screemsBar" style="margin:0% 0% 0% -3%;">
 								<div class="screemsBarLeft2" id="screem_2">&nbsp;</div>
 								<div class="screemsBarRight" id="screemsBarRight2">
 									<div class="screemContainer">
-										<h3>Screems Two</h3>
+										<h3>Two</h3>
 										<div class="screemContent">
 											This post is written by Christian.This post is
 											written by Christian.This post is written by
@@ -88,7 +115,7 @@
 							<div class="screemsBarLeft3" id="screem_3">&nbsp;</div>
 							<div class="screemsBarRight" id="screemsBarRight31">
 								<div class="screemContainer">
-									<h3>Screems Three</h3>
+									<h3>Three</h3>
 									<div class="screemContent1" id="smallImg">										
 										<img src="src/images/img5.jpg" id="Img1" alt="">
 									</div>
@@ -105,7 +132,7 @@
 							<div class="screemsBarLeft4" id="screem_4">&nbsp;</div>
 							<div class="screemsBarRight" id="screemsBarRight4">
 								<div class="screemContainer">
-									<h3>Screems Four</h3>
+									<h3>Four</h3>
 									<div class="screemContent">
 										This post is written by Christian.This post is
 										written by Christian.This post is written by
@@ -115,6 +142,14 @@
 							</div>
 							<div class="clear"></div>
 						</div>
+					</div>
+					<!--<ul id="tabs">
+						<li>&nbsp;<li>
+						<li><a href="#myFeeds">My Feeds</a></li>
+						<li><a href="#selectedFeed"><span id="li_experiment">Selected Feed</span></a></li>								
+					</ul>-->
+					<div id="myFeeds" class="tab-section">
+						
 					</div>
 					<div id="selectedFeed" class="tab-section">
 						<h1>Selected Feed</h1>
