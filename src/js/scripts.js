@@ -1,130 +1,104 @@
-$(document).ready(function(){	
-	screemsHeight();
-	
-	$(window).resize(function(){
-		screemsHeight();
+var safeColors = ['00','33','66','99','cc','ff'];
+var rand = function() {
+    return Math.floor(Math.random()*6);
+};
+var randomColor = function() {
+    var r = safeColors[rand()];
+    var g = safeColors[rand()];
+    var b = safeColors[rand()];
+    return "#"+r+g+b;
+};
+
+$(document).ready(function(){
+	$("#food, #wildlife, #science, #narendramodi").css("display","none");
+	$("[id^='statusCount_']").click(function(){
+		var id = $(this).attr("id");
+		var statusId = id.slice(12);
+		var poorCount = parseInt($("#poor_"+statusId).text());
+		var countIncrement =poorCount+1;
+		$("#poor_"+statusId).text(countIncrement);
+		var parentId = $("#poor_"+statusId).parent().attr("id");
+		
+		if((poorCount>=110) && (poorCount<=120)){
+			$("#poor_"+statusId).parent().css( "background", "#0D7DA8" );
+			$("#poor_"+statusId).parent().css( "border", "1px solid #0D7DA8" );
+			$("#statusText_"+statusId).text("Good");
+		}else if((poorCount>=121) && (poorCount<=125)){
+			$("#poor_"+statusId).parent().css( "background", "#00AA36" );
+			$("#poor_"+statusId).parent().css( "border", "1px solid #00AA36" );
+			$("#statusText_"+statusId).text("V. Good");
+		}		
+	});
+		
+	$("[id^='screamContent_']").mouseover(function (event) {	
+		var contentId = $(this).attr("id");
+		var actualId = contentId.slice(14);				
+		//$("#screamActions").fadeOut(1000);
+		//$("#screamActions").slideDown(1000);
+		$("#screamActions_"+actualId).css("display","block");
+		event.preventDefault();
+	}).mouseout(function() {
+		var contentId = $(this).attr("id");
+		var actualId = contentId.slice(14);
+		//$("#screamActions").slideUp(1000);
+		//$("#screamActions").fadeIn(1000);
+		$("#screamActions_"+actualId).css("display","none");			
 	});
 	
-	
-	
-	$("[id^='screem_']").click(function (event) {		//My experiment link expand/collapse 	
-		$('#tabs a.current').removeClass('current');	//Remove Class for active tab.
-		$('.tab-section:visible').hide();				//Hide body content of active tab
-		var id = "#"+this.id;
-		var selectedScreemId= id.slice(8);	
+	$("[id^='screamContent_']").click(function (event) {        
+		var actualId = $(this).attr("id");
+		var screamId = actualId.slice(14);
 		
-		var bgColor = $(id).css("background");
-		
-		var liId = "selected_text_"+selectedScreemId;
-		var spanId = "close_tab_"+selectedScreemId;
-		var hrefId = "#feed_"+selectedScreemId;
-		var selectedLiId = "feed_"+selectedScreemId;
-		var feedData = "feedContainer_"+selectedScreemId;
-		var screemTitle = "Sports";
-		var screemData = "<h1>Selected Screem</h1>";		
-		
-		//var lielement = "<li id='newTab_"+selectedScreemId+"' onmouseover='showCloseTab(id);' onmouseout='hideCloseTab(id);'><a href='"+hrefId+"' class='current' id='"+selectedLiId+"'><span  id='"+liId+"' onmouseover='showCloseTab(id);'  onclick='setExperimentTabSelection(id,event);'>"+screemTitle+"</span>&nbsp;&nbsp;<span id='"+spanId+"' onclick='closeTab(id,event);' class='display:none;'><img src='images/close_tab.png' alt='' style='vertical-align:middle;'></span></a></li>";
-		var lielement = "<li id='newTab_"+selectedScreemId+"'><a href='"+hrefId+"' class='current' id='"+selectedLiId+"'><span  id='"+liId+"' onmouseover='showCloseTab(id);'  onclick='setExperimentTabSelection(id,event);'>"+screemTitle+"</span>&nbsp;&nbsp;<span id='"+spanId+"' onclick='closeTab(id,event);' class='display:none;'><img src='images/close_tab.png' alt='' style='vertical-align:middle;'></span></a></li>";
-		$("#tabs").append(lielement);
-		
-		$("#"+selectedLiId).css("background", bgColor);
-		$("#"+selectedLiId).css("color", "#FFF");
-		$("#topHeader").css("background", bgColor);
-		$("#topHeader").css("color", "#FFF");
-		
-		var tab_container = '<div id="feed_'+selectedScreemId+'" class="tab-section" style="display:block;"><div id="'+feedData+'"></div><div class="clear"></div></div>';
-		$("#tabControl").append(tab_container);
-		
-		var feedDataId = "#"+feedData;		
-		
-		$(feedDataId).append(screemData);	
+		var screamHead = $("#"+actualId).find("h4").text();
+		displayScreams(screamHead);
+		var bgColor = $("#"+actualId).css("border-left-color");		
+		$(".topHeader").css("background",bgColor);
 		
 		event.preventDefault();
-	});
+    });
 	
+	$("[id^='myScreams_']").click(function (event) {        
+		var actualId = $(this).attr("id");
+		var screamHead = $("#"+actualId).text();
+		
+		var screamHead = $("#"+actualId).text();
+		displayScreams(screamHead);		
+		event.preventDefault();
+    });
 	
-	/*$('#Img1').mouseover(function () {
-		$(this).animate({ width: "500px", height: "300" }, 100);
-	}).mouseout(function(){
-		$(this).animate({ width: "300px", height: "110px" }, 100);
-	});*/
-	
-	$("#screem_1").mouseover(function()
-	{
-		$("#showControls").css("display","block");
-		$("#showControls").animate({ left: '0' },350);
-		$("#screemsBarRight1").css("width","79%");
-	}).mouseout(function()
-	{
-		$("#showControls").css("display","none");
-		$("#showControls").animate({ left: '-11px' },350);
-		$("#screemsBarRight1").css("width","99%");
-	});	
-	
-	$("#screemsBarRight1").mouseover(function(){
-		$("#screemsControls1").css("display","block");
-	}).mouseout(function(){
-		$("#screemsControls1").css("display","none");
-	});		
 });
 
-$(window).load(function(){
-	screemsHeight();
-});
-
-function showCloseTab(id){
-	var tabId = id.slice(7);
-	$("#close_tab_"+tabId).css("display","block");	
-}
-
-function hideCloseTab(id){
-	var tabId = id.slice(7);
-	$("#close_tab_"+tabId).css("display","none");
-}
-
-function screemsHeight(){
-
-	var imgHeight = $("#screemsBarRight31").height()+"px";
-	
-	$("#screem_3").css("height",imgHeight);
-
-	var screemsHeight= $("#screemsBarRight1, #screemsBarRight1, #screemsBarRight4").height();	
-	if(navigator.userAgent.search("Chrome") >= 0){
-		var selHeight = parseInt(screemsHeight)+2+"px";
+function displayScreams(screamHead){
+	$(".topMenu ul li").css("border","0px");
+	if(screamHead == "#food"){
+		$("#myScreams, #wildlife, #science, #narendramodi").css("display","none");
+		$("#food").css("display","block");
+		$(".topHeader").css("background","#948F08");
+		$("#myScreams_2").css("border-bottom","6px solid #FFF");
+		$("#myScreams_2").css("padding-bottom","0.5%");
+	}else if(screamHead == "#wildlife"){
+		$("#myScreams, #food, #science, #narendramodi").css("display","none");
+		$("#wildlife").css("display","block");
+		$(".topHeader").css("background","#CA322D");
+		$("#myScreams_3").css("border-bottom","6px solid #FFF");
+		$("#myScreams_3").css("padding-bottom","0.5%");
+	}else if(screamHead == "#science"){
+		$("#myScreams, #food, #wildlife, #narendramodi").css("display","none");
+		$("#science").css("display","block");
+		$(".topHeader").css("background","#0A5264");
+		$("#myScreams_4").css("border-bottom","6px solid #FFF");
+		$("#myScreams_4").css("padding-bottom","0.5%");		
+	}else if(screamHead == "#narendramodi"){
+		$("#myScreams, #food, #wildlife, #science").css("display","none");
+		$("#narendramodi").css("display","block");
+		$(".topHeader").css("background","#FF64A8");
+		$("#myScreams_5").css("border-bottom","6px solid #FFF");
+		$("#myScreams_5").css("padding-bottom","0.5%");
 	}else{
-		var selHeight = screemsHeight+"px";
-	}	
-	$(".screemsBarLeft1, .screemsBarLeft2, .screemsBarLeft4").css("height",selHeight);
-}
-
-function setExperimentTabSelection(id, event){	
-	var selected_tab = "#"+id;
-	$("#tabs li a").removeClass("current");
-	$(selected_tab).parent().addClass("current");
-	$('.tab-section:visible').show();
-	var section_element_no = id.slice(14);
-	var section_element_id = "#feed_"+section_element_no;
-	$(section_element_id).css("display",'block');
-	$(section_element_id).show();
-	event.preventDefault();
-}
-
-function closeTab(id, event){	//Close selected tab.
-	var tabid="#"+id;
-	var tab_container_no = tabid.slice(11);	
-	var tab_container_id = "#feed_"+tab_container_no;
-	var current_tab = $(tabid).parent().hasClass('current');
-	if(!current_tab)	// The tab is not active
-	{
-		$(tabid).parent().parent().remove();
-		$(tab_container_id).remove();
-		event.preventDefault();
-	}
-	var prev_li_id = "#"+$(tabid).parent().parent().prev().children().children()[0].id;
-	$(tabid).parent().parent().remove();
-	var prevTab_id = "#"+$(tab_container_id).prev()[0].id;
-	$(tab_container_id).remove();
-	$(prev_li_id).parent().addClass("current");
-	$(prevTab_id).show();  //tab_section show
-	event.preventDefault();
+		$("#food, #wildlife, #science, #narendramodi").css("display","none");
+		$("#myScreams").css("display","block");
+		$(".topHeader").css("background","#CA322D");
+		$("#myScreams_1").css("border-bottom","6px solid #FFF");
+		$("#myScreams_1").css("padding-bottom","0.5%");
+	}		
 }

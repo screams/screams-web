@@ -1,3 +1,15 @@
+
+@font-face {
+	font-family: 'ecoicon';
+	src:url('../../../fonts/ecoicons/ecoicon.eot');
+	src:url('../../../fonts/ecoicons/ecoicon.eot?#iefix') format('embedded-opentype'),
+		url('../../../fonts/ecoicons/ecoicon.woff') format('woff'),
+		url('../../../fonts/ecoicons/ecoicon.ttf') format('truetype'),
+		url('../../../fonts/ecoicons/ecoicon.svg#ecoicon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
 .hi-icon {
 	display: inline-block;
 	font-size: 0px;
@@ -134,7 +146,7 @@
 	left: 0;
 	padding: 0;
 	z-index: -1;
-	box-shadow: 0 0 0 2px rgba(255,255,255,0.1);
+	box-shadow: 0 0 0 2px #FFFFFF;
 	opacity: 0;
 	-webkit-transform: scale(0.9);
 	-moz-transform: scale(0.9);
@@ -163,10 +175,10 @@
 	}
 	40% {
 		opacity: 0.5;
-		box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px #3851bc, 0 0 0 10px rgba(255,255,255,0.5);
+		box-shadow: 0 0 0 2px #FFFFFF, 0 0 10px 10px #FFFFFF, 0 0 0 10px #FFFFFF;
 	}
 	100% {
-		box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px #3851bc, 0 0 0 10px rgba(255,255,255,0.5);
+		box-shadow: 0 0 0 2px #FFFFFF, 0 0 10px 10px #FFFFFF, 0 0 0 10px #FFFFFF;
 		-webkit-transform: scale(1.5);
 		opacity: 0;
 	}
@@ -177,10 +189,10 @@
 	}
 	40% {
 		opacity: 0.5;
-		box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px #3851bc, 0 0 0 10px rgba(255,255,255,0.5);
+		box-shadow: 0 0 0 2px #FFFFFF, 0 0 10px 10px #FFFFFF, 0 0 0 10px #FFFFFF;
 	}
 	100% {
-		box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px #3851bc, 0 0 0 10px rgba(255,255,255,0.5);
+		box-shadow: 0 0 0 2px #FFFFFF, 0 0 10px 10px #FFFFFF, 0 0 0 10px #FFFFFF;
 		-moz-transform: scale(1.5);
 		opacity: 0;
 	}
@@ -191,10 +203,10 @@
 	}
 	40% {
 		opacity: 0.5;
-		box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px #3851bc, 0 0 0 10px rgba(255,255,255,0.5);
+		box-shadow: 0 0 0 2px #FFFFFF, 0 0 10px 10px #FFFFFF, 0 0 0 10px #FFFFFF;
 	}
 	100% {
-		box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px #3851bc, 0 0 0 10px rgba(255,255,255,0.5);
+		box-shadow: 0 0 0 2px #FFFFFF, 0 0 10px 10px #FFFFFF, 0 0 0 10px #FFFFFF;
 		transform: scale(1.5);
 		opacity: 0;
 	}
